@@ -6,6 +6,7 @@ SOURCE=kernel.asm
 TARGET=MadOS
 LOG=build.log
 
+mkdir bin
 cd src
 
 java -cp "$DCPU" dcpu.assembler.Assembler ${SOURCE} ../bin/${TARGET} > ../$LOG
