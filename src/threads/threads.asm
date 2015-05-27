@@ -202,7 +202,9 @@ yield:
     JSR enter_critical
         PUSH J
             SET J, [current_thread]
+.ifdef DCPU_MAD
             GRM [J+THREAD_RINGMODE]
+.endif
             ADD J, THREAD_SIZE-1
             SET [J], SP
 

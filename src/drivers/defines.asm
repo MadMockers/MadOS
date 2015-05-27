@@ -40,13 +40,13 @@
 .define DVR_FS_FUNC_COUNT           12
 
 .define DRIVER_CLASS_TTY            0x1004
-.define DVR_TTY_WRITE                0
-.define DVR_TTY_NEWLINE                1
-.define DVR_TTY_GETFMT                2
-.define DVR_TTY_SETFMT                3
-.define DVR_TTY_GETXY                4
-.define DVR_TTY_SETXY                5
-.define DVR_TTY_FUNC_COUNT            6
+.define DVR_TTY_WRITE               0
+.define DVR_TTY_NEWLINE             1
+.define DVR_TTY_GETFMT              2
+.define DVR_TTY_SETFMT              3
+.define DVR_TTY_GETXY               4
+.define DVR_TTY_SETXY               5
+.define DVR_TTY_FUNC_COUNT          6
 
 ; Driver struct
 ;+0 HardwareType / Child Class
@@ -72,6 +72,6 @@
 .define DEVICE_ID               0
 .define DEVICE_HW               1
 .define DEVICE_DRIVER           2
-.define DEVICE_SPINLOCK            3 ; size 4
-.define DEVICE_SIZE                7
+.define DEVICE_SPINLOCK         3 ; size 4
+.define DEVICE_SIZE             DEVICE_SPINLOCK+SPINLOCK_SIZE
 

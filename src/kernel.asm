@@ -128,11 +128,6 @@ kernel_start:
     ; modify jump at start to cause kpanic
     SET [3], execution_at_0
 
-.ifdef PANIC_TEST
-    PUSH KPANIC_TEST
-        JSR kernel_panic
-.endif
-
     ; initialize threads as soon as possible so we can use spinlocks
     JSR init_threads
     JSR init_inodes
@@ -151,6 +146,11 @@ kernel_start:
 
     JSR tty_init
     JSR initialize_console
+
+.ifdef PANIC_TEST
+    PUSH KPANIC_ROOT_THREAD_DIED
+        JSR kernel_panic
+.endif
 
     PUSH str_booting
         JSR debug_print

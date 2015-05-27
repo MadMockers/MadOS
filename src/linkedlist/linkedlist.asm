@@ -1,7 +1,7 @@
 
-.define LL_FLAG_KERNEL        1
+.define LL_FLAG_KERNEL      1
 
-.define LL_ITR_SIZE            4
+.define LL_ITR_SIZE         4
 
 .define LL_USED_DATA        8
 
@@ -10,11 +10,11 @@
 ; +0 Count
 .define LINKEDLIST_COUNT    0
 ; +1 Page Size
-.define LINKEDLIST_PAGESIZE    1
+.define LINKEDLIST_PAGESIZE 1
 ; +2 Flags
 .define LINKEDLIST_FLAGS    2
 ; +3-7 Spinlock
-.define    LINKEDLIST_SPINLOCK    3
+.define LINKEDLIST_SPINLOCK 3
 ; +8-n Values
 ; +n Next Page
 ;------------------------------
@@ -22,9 +22,9 @@
 ;------------------------------
 ; LinkedListIterator
 ; +0 LinkedList
-.define LL_ITR_LINKEDLIST    0
+.define LL_ITR_LINKEDLIST   0
 ; +1 CurrentPage
-.define LL_ITR_CURRENTPAGE    1
+.define LL_ITR_CURRENTPAGE  1
 ; +2 PageIndex
 .define LL_ITR_PAGEINDEX    2
 ; +3 Index

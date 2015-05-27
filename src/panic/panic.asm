@@ -3,18 +3,18 @@
 .define KPANIC_NOT_ALLOCATED        0x01
 .define KPANIC_ALREADY_ALLOCATED    0x02
 .define KPANIC_OUT_OF_MEMORY        0x03
-.define KPANIC_NOT_IMPLEMENTED        0x04
-.define KPANIC_INVALID_ARGUMENT        0x05
-.define KPANIC_INDEX_OUT_OF_BOUNDS    0x06
-.define KPANIC_INODE_TYPE_MISMATCH    0x07
+.define KPANIC_NOT_IMPLEMENTED      0x04
+.define KPANIC_INVALID_ARGUMENT     0x05
+.define KPANIC_INDEX_OUT_OF_BOUNDS  0x06
+.define KPANIC_INODE_TYPE_MISMATCH  0x07
 .define KPANIC_DEADLOCK             0x08
 .define KPANIC_IAQ_OVERFLOW         0x09
 .define KPANIC_IAQ_UNDERFLOW        0x0A
-.define KPANIC_NO_CONSOLE            0x0B
-.define KPANIC_NO_CLOCK                0x0C
-.define KPANIC_ROOT_THREAD_DIED        0x0D
-.define KPANIC_EXECUTION_AT_0        0x0E
-.define KPANIC_DRIVER_ERROR            0x0F
+.define KPANIC_NO_CONSOLE           0x0B
+.define KPANIC_NO_CLOCK             0x0C
+.define KPANIC_ROOT_THREAD_DIED     0x0D
+.define KPANIC_EXECUTION_AT_0       0x0E
+.define KPANIC_DRIVER_ERROR         0x0F
 .define KPANIC_MAX_ERROR            0x10
 
 ; +0 Error Number

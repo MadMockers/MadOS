@@ -20,4 +20,4 @@
 .define HWTYPE_VERSION  2
 .define HWTYPE_SIZE     3
 
-.define HWTYPE_VIRTUAL 0xFFFF
+.define HWTYPE_VIRTUAL  0xFFFF

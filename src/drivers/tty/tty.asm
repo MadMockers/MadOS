@@ -223,16 +223,16 @@ tty_newline:
 ; +0 Format
 tty_getfmt:
     PUSH A
-	PUSH B
+   PUSH B
         SET A, [SP+3]
         SET A, [A+TTY_FMT]
-		SET B, A
+      SET B, A
         SHR A, 8
-		SHL B, 1
-		AND B, 0x100
-		BOR A, B
+      SHL B, 1
+      AND B, 0x100
+      BOR A, B
         SET [SP+3], A
-	POP B
+   POP B
     POP A
     RET
 
@@ -240,17 +240,17 @@ tty_getfmt:
 ; +0 Device
 tty_setfmt:
     PUSH A
-	PUSH B
+   PUSH B
         SET A, [SP+4]
-		SET B, A
+      SET B, A
         SHL A, 8
-		AND B, 0x100
-		SHR B, 1
-		BOR A, B
+      AND B, 0x100
+      SHR B, 1
+      BOR A, B
         PUSH A
             SET A, [SP+4]
         POP [A+TTY_FMT]
-	POP B
+   POP B
     POP A
     RET
 

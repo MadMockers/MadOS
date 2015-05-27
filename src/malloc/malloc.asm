@@ -1,7 +1,7 @@
 
-.define UMEM_PAGE_SIZE    512
-.define UMEM_PAGES    104
-.define UMEM_START    0x3000
+.define UMEM_PAGE_SIZE  512
+.define UMEM_PAGES      104
+.define UMEM_START      0x3000
 
 ; each entry here will point to an inode
 ; the first allocation needs to be bootstrapped with kernel memory
