@@ -179,7 +179,6 @@ kernel_start:
         JSR madfs_format
     POP 0
 
-    DAT 0x800
     PUSH A
         JSR madfs_mount
     POP 0

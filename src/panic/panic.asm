@@ -59,7 +59,6 @@ kernel_panic:
     SET A, [SP+1]
     SET SP, 0
 
-    dat 0x800
     ; make console scary red
     PUSH 0xC0
     PUSH [console]
