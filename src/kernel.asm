@@ -1,7 +1,7 @@
 
 ; DCPU_MAD = variant of DCPU with various extra features
 ;.define DCPU_MAD
-;.define PANIC_TEST
+.define PANIC_TEST
 .define HELPFUL_PANICS
 
 SET SP, kernel_stack
