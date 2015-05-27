@@ -1,0 +1,5 @@
+
+.define HMD2043_FLAGS   7
+.define HMD2043_SIZE    8
+
+.define HMD2043_SUPPORTED_FLAGS 0

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+TARGET=MadOS
+
+cd `dirname $0`
+
+java -cp "$DCPU" dcpu.debugger.JDebugger bin/$TARGET.bin -hw display -hw clock -hw m35fd

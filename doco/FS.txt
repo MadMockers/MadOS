@@ -1,0 +1,40 @@
+MadFS Specification
+
+Sector 0:
+
+0x0000 - 0x0001		Magic Number ('MDFS')
+0x0002				Version
+0x0003				Root Cluster
+0x0004				Cluster Size (In sectors)
+0x0005				Cluster Count
+0x0006				Bits / Entry in tree table
+0x0007				First Data Sector
+0x0008				Cluster Allocation Sector
+0x0009				Words / Sector
+0x000A				Free Clusters
+0x000B				Tree Table Sector
+0x000C				UniqueID (Not Implemented)
+
+Sector 1:
+0x0000-*			Cluster Bit Field
+
+Sector [First Data Sector] - *:
+0x0000				Parent Sector
+0x0001				Data Size
+0x0002				Owner
+0x0003				Flags
+0x0004              RefCount
+0x0005				Type
+					-	0x0000	Directory
+					-	0x0001	File
+0x0006-0015			Node Name (Unused filled with 0s)
+0x0015-*			Data
+
+Directory Data:
+0x0000				Children Node Count
+0x0001-*			Entries
+	Entry:
+		0x0000			Node ClusterID
+		0x0001			Flags
+		0x0002 - 0x0011	Name (Unused filled with 0s)
+		

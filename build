@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cd `dirname $0`
+
+SOURCE=kernel.asm
+TARGET=MadOS
+LOG=build.log
+
+cd src
+
+java -cp "$DCPU" dcpu.assembler.Assembler ${SOURCE} ../bin/${TARGET} > ../$LOG
+
