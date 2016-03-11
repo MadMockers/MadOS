@@ -125,10 +125,12 @@ m35fd_setinterrupt:
         POP B
         POP 0
 
-        SET X, [B+IRQ_IRQ]
-        SET B, [A+DEVICE_HW]
-        SET A, 1
-        HWI [B+HW_PORT]
+        PUSH X
+            SET X, [B+IRQ_IRQ]
+            SET B, [A+DEVICE_HW]
+            SET A, 1
+            HWI [B+HW_PORT]
+        POP X
 
     POP B
     POP A
