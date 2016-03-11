@@ -15,12 +15,12 @@ tty_init:
         ADD SP, 4
 
         SET [A+DRIVER_CREATE_DEVICE], tty_create_device
-        SET [A+DRIVER_FUNC_COUNT+DVR_TTY_WRITE], tty_write
-        SET [A+DRIVER_FUNC_COUNT+DVR_TTY_NEWLINE], tty_newline
-        SET [A+DRIVER_FUNC_COUNT+DVR_TTY_GETFMT], tty_getfmt
-        SET [A+DRIVER_FUNC_COUNT+DVR_TTY_SETFMT], tty_setfmt
-        SET [A+DRIVER_FUNC_COUNT+DVR_TTY_GETXY], tty_getxy
-        SET [A+DRIVER_FUNC_COUNT+DVR_TTY_SETXY], tty_setxy
+        SET [A+DRIVER_FUNC+DVR_TTY_WRITE], tty_write
+        SET [A+DRIVER_FUNC+DVR_TTY_NEWLINE], tty_newline
+        SET [A+DRIVER_FUNC+DVR_TTY_GETFMT], tty_getfmt
+        SET [A+DRIVER_FUNC+DVR_TTY_SETFMT], tty_setfmt
+        SET [A+DRIVER_FUNC+DVR_TTY_GETXY], tty_getxy
+        SET [A+DRIVER_FUNC+DVR_TTY_SETXY], tty_setxy
 
         SET [tty_driver], A
     

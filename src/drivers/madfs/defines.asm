@@ -17,6 +17,6 @@
 .define MADFS_INFO_FS               11
 .define MADFS_INFO_SIZE             12
 
-.define MADFS_INFO                  7
-.define MADFS_TREETABLE             8
-.define MADFS_DEVICE_SIZE           9
+.define MADFS_INFO                  DEVICE_SIZE+0
+.define MADFS_TREETABLE             DEVICE_SIZE+1
+.define MADFS_DEVICE_SIZE           DEVICE_SIZE+2

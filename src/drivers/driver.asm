@@ -20,7 +20,7 @@ init_drivers:
 
 ;+4 Hardware ID Low
 ;+3 Hardware ID High
-;+2 Hardware Version / Driver Child (next)
+;+2 Hardware Version
 ;+1 Class
 ;+0 Function Count
 .define VAR_HASCHILD 0
@@ -58,11 +58,9 @@ driver_create:
         SET [B+HWTYPE_ID+0], [Z+4]
         SET [B+HWTYPE_ID+1], [Z+3]
         SET [B+HWTYPE_VERSION], [Z+2]
-        SET [A+DRIVER_CHILD], 0xFFFF
         SET PC, .skip_child
 .skip_hwtype:
         SET [A+DRIVER_HWTYPE], 0xFFFF
-        SET [A+DRIVER_CHILD], [Z+2]
 .skip_child:
         SET [A+DRIVER_CLASS], [Z+1]
         SET [A+DRIVER_FUNC_COUNT], [Z+0]

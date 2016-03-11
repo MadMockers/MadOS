@@ -15,7 +15,8 @@
 .define KPANIC_ROOT_THREAD_DIED     0x0D
 .define KPANIC_EXECUTION_AT_0       0x0E
 .define KPANIC_DRIVER_ERROR         0x0F
-.define KPANIC_MAX_ERROR            0x10
+.define KPANIC_NO_ROOT_FS           0x10
+.define KPANIC_MAX_ERROR            0x11
 
 ; +0 Error Number
 kernel_panic:
@@ -104,6 +105,7 @@ kernel_panic:
     DAT .str_root_thread_died
     DAT .str_execution_at_0
     DAT .str_driver_error
+    DAT .str_no_root_fs
 
 .str_test:
     .asciiz "Test"
@@ -138,4 +140,6 @@ kernel_panic:
     .asciiz "Execution At 0"
 .str_driver_error:
     .asciiz "Generic Driver Error"
+.str_no_root_fs:
+    .asciiz "No Root Filesystem"
 .endif

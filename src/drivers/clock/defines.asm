@@ -1,3 +1,3 @@
 
 ; +0 DEVICE Struct
-.define CLOCK_SIZE      7
+.define CLOCK_SIZE      DEVICE_SIZE

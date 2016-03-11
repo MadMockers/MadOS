@@ -181,6 +181,7 @@ madfs_create:
 
             SET Y, [X+MADFS_SB_CLUSTERBITS]
 
+            PUSH A
             PUSH C
             PUSH Y
 
@@ -205,7 +206,8 @@ madfs_create:
 
 .out_of_space:
                     SET [Z+0], FS_ERROR_OUT_OF_SPACE
-                    SET PC, .return
+            SUB SP, 4
+            SET PC, .return
 .break_find_free:
 
                 PUSH B
@@ -214,16 +216,15 @@ madfs_create:
                 ADD SP, 2
 
             POP Y
-            ;POP C
+            POP C
+            POP A
 
-            ;PUSH C
-            PUSH B
+            PUSH C
+            PUSH [X+MADFS_SB_TREETABLESECTOR]
             PUSH I
-                JSR [A+DRIVER_FUNC_COUNT+DVR_STORAGE_WRITE]
+                JSR [A+DRIVER_FUNC+DVR_STORAGE_WRITE]
             ADD SP, 3
 .return:
-            ADD SP, 2
-
         JSR free_spinlock
 
     POP I
@@ -267,6 +268,13 @@ madfs_mount:
                 JSR kalloc
             POP Y
 
+            ; Read super block
+            PUSH Y
+            PUSH 0
+            PUSH B
+                JSR [A+DRIVER_FUNC+DVR_STORAGE_READ]
+            ADD SP, 3
+
             PUSH MADFS_INFO_SIZE
                 JSR kalloc
             POP [I+MADFS_INFO]
@@ -275,7 +283,6 @@ madfs_mount:
             PUSH MADFS_SB_SIZE
                 JSR memcpy
             ADD SP, 3
-
 
             PUSH Y
             PUSH 0

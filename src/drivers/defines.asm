@@ -51,22 +51,20 @@
 ; Driver struct
 ;+0 HardwareType / Child Class
 .define DRIVER_HWTYPE           0
-;+1 Driver Next in chain
-.define DRIVER_CHILD            1
-;+2 Class
-.define DRIVER_CLASS            2
-;+3 Driver next
-.define DRIVER_NEXT             3
-;+4 Driver prev
-.define DRIVER_PREV             4
-;+5 Create Device Struct function
-.define DRIVER_CREATE_DEVICE    5
-;+6 Function Count
-.define DRIVER_FUNC_COUNT       6
-;+7-* Functions
-.define DRIVER_FUNC             7
+;+1 Class
+.define DRIVER_CLASS            1
+;+2 Driver next
+.define DRIVER_NEXT             2
+;+3 Driver prev
+.define DRIVER_PREV             3
+;+4 Create Device Struct function
+.define DRIVER_CREATE_DEVICE    4
+;+5 Function Count
+.define DRIVER_FUNC_COUNT       5
+;+6-* Functions
+.define DRIVER_FUNC             6
 
-.define DRIVER_SIZE 7
+.define DRIVER_SIZE             6
 
 ; a unique ID to the HW type
 .define DEVICE_ID               0

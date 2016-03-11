@@ -1,7 +1,7 @@
 
 ; DCPU_MAD = variant of DCPU with various extra features
 ;.define DCPU_MAD
-.define PANIC_TEST
+;.define PANIC_TEST
 .define HELPFUL_PANICS
 
 SET SP, kernel_stack
@@ -46,6 +46,7 @@ kernel_stack:
 #include "drivers/m35fd/defines.asm"
 #include "drivers/tty/defines.asm"
 #include "drivers/madfs/defines.asm"
+#include "drivers/partitioner/defines.asm"
 
 #include "drivers/lem1802/lem1802.asm"
 #include "drivers/clock/clock.asm"
@@ -53,6 +54,7 @@ kernel_stack:
 #include "drivers/m35fd/m35fd.asm"
 #include "drivers/tty/tty.asm"
 #include "drivers/madfs/madfs.asm"
+#include "drivers/partitioner/partitioner.asm"
 
 console:
     DAT 0
@@ -148,7 +150,7 @@ kernel_start:
     JSR initialize_console
 
 .ifdef PANIC_TEST
-    PUSH KPANIC_ROOT_THREAD_DIED
+    PUSH KPANIC_TEST
         JSR kernel_panic
 .endif
 
@@ -159,40 +161,7 @@ kernel_start:
     JSR m35fd_init
     JSR hmd2043_init
     JSR madfs_init
-
-    PUSH DRIVER_CLASS_STORAGE
-        JSR find_driver_hardware_pair
-    POP A
-    POP B
-
-    PUSH A
-    PUSH B
-        JSR [A+DRIVER_CREATE_DEVICE]
-    POP A
-    POP 0
-
-    PUSH A
-        JSR madfs_create_device
-    POP A
-
-    PUSH A
-        JSR madfs_format
-    POP 0
-
-    PUSH A
-        JSR madfs_mount
-    POP 0
-
-    PUSH A
-        JSR madfs_create
-    POP 0
-
-    PUSH str_booted
-        JSR debug_print
-    POP 0
-
-loop:
-    SET PC, loop
+    JSR partitioner_init
 
     JSR clock_init
 
@@ -221,8 +190,6 @@ loop:
     POP 0
 
     JSR init_scheduler
-
-.no_clock:
 
     PUSH str_booted
         JSR debug_print

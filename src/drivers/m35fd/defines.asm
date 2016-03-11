@@ -1,3 +1,3 @@
 
-.define M35FD_WAITING_THREAD    7
-.define M35FD_SIZE              8
+.define M35FD_WAITING_THREAD    DEVICE_SIZE+0
+.define M35FD_SIZE              DEVICE_SIZE+1
